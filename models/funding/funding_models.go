@@ -35,6 +35,10 @@ type (
 		Type   okex.BillType    `json:"type,string"`
 		TS     okex.JSONTime    `json:"ts"`
 	}
+	LnDeposit struct {
+		Invoice string `json:"invoice"`
+		CTime   string `json:"cTime"`
+	}
 	DepositAddress struct {
 		Addr     string           `json:"addr"`
 		Tag      string           `json:"tag,omitempty"`

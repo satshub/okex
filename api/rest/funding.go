@@ -94,6 +94,26 @@ func (c *Funding) AssetBillsDetails(req requests.AssetBillsDetails) (response re
 	return
 }
 
+// LightningDeposits
+// Users can create up to 10,000 different invoices within 24 hours.
+// Rate Limit: 2 requests per second
+// Rate limit rule: UserID
+//
+// https://www.okx.com/docs-v5/en/#funding-account-rest-api-lightning-deposits
+func (c *Funding) LightningDeposits(req requests.LightningDeposit) (response responses.LightningDeposit, err error) {
+	p := "/api/v5/asset/deposit-lightning"
+	m := okex.S2M(req)
+
+	res, err := c.client.Do(http.MethodGet, p, true, m)
+	if err != nil {
+		return
+	}
+	defer res.Body.Close()
+	d := json.NewDecoder(res.Body)
+	err = d.Decode(&response)
+	return
+}
+
 // GetDepositAddress
 // Retrieve the deposit addresses of currencies, including previously-used addresses.
 //

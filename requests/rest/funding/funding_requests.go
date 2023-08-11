@@ -22,6 +22,11 @@ type (
 		Before int64         `json:"before,string,omitempty"`
 		Limit  int64         `json:"limit,string,omitempty"`
 	}
+	LightningDeposit struct {
+		Ccy string `json:"ccy"`
+		Amt string `json:"amt"`
+		To  string `json:"to,omitempty"`
+	}
 	GetDepositAddress struct {
 		Ccy string `json:"ccy"`
 	}

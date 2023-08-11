@@ -22,6 +22,10 @@ type (
 		responses.Basic
 		Bills []*models.Bill `json:"data"`
 	}
+	LightningDeposit struct {
+		responses.Basic
+		LnDeposits []*models.LnDeposit `json:"data"`
+	}
 	GetDepositAddress struct {
 		responses.Basic
 		DepositAddresses []*models.DepositAddress `json:"data"`
